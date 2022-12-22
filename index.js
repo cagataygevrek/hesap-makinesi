@@ -1,25 +1,25 @@
 const butonSec = document.querySelectorAll("button");
 const anasayfaSec = document.querySelector(".anasayfa");
 
-let hesapMakinesi = [];
+let sayilar = [];
 
 let toplamHesap;
 
-function hesapla(button) {
+let hesapla = (button) => {
   const sayi = button.textContent;
 
   if (sayi === "Temizle") {
-    hesapMakinesi = [];
+    sayilar = [];
     anasayfaSec.textContent = "";
   } else if (sayi === "=") {
     console.log(toplamHesap);
     anasayfaSec.textContent = eval(toplamHesap);
   } else {
-    hesapMakinesi.push(sayi);
-    toplamHesap = hesapMakinesi.join("");
+    sayilar.push(sayi);
+    toplamHesap = sayilar.join("");
     anasayfaSec.textContent = toplamHesap;
   }
-}
+};
 
 butonSec.forEach((button) =>
   button.addEventListener("click", () => hesapla(button))
